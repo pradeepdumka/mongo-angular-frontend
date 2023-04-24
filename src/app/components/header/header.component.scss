@@ -1,0 +1,13 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  mat-toolbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999999;
+  }
+  ::ng-deep mat-snack-bar-container.mdc-snackbar.mat-mdc-snack-bar-container.mdc-snackbar--open.ng-tns-c29-8.ng-trigger.ng-trigger-state.red-snackbar.ng-star-inserted {
+    margin-top: 67px; 
+}
+ 

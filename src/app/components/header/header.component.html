@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span (click)="navigate('/')"><mat-icon></mat-icon>News</span>
+    <span class="example-spacer"></span>
+    <button
+      mat-raised-button
+      color="accent"
+      style="margin-right: 20px; cursor: pointer"
+      (click)="navigate('/')"
+    >
+      Home
+    </button>
+    <button
+    mat-raised-button
+    color="accent"
+    style="margin-right: 20px; cursor: pointer"
+    (click)="navigate('news')"
+  >
+    Latest News
+  </button>
+    <button
+    *ngIf="isUserLoggedIn"
+      mat-raised-button
+      color="accent"
+      style="margin-right: 20px; cursor: pointer"
+      (click)="logout()"
+    >
+      Logout
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>

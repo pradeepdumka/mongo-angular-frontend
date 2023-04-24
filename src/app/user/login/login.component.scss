@@ -1,0 +1,50 @@
+.report-form {
+    padding-top: 48px;
+  }
+  
+  .warning {
+    color: red;
+  }
+  .form-group {
+    &:last-child {
+      border-bottom: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    padding-bottom: 0px;
+    border-bottom: 2px solid #d6d4d4;
+    margin-bottom: 15px;
+  }
+  .group-label {
+    margin-bottom: 5px;
+    display: flex;
+    padding-top: 3px;
+    font-weight: 500;
+    font-size: 18px;
+    padding-bottom: 15px;
+  }
+  .btn {
+    width: 100%;
+    background-color: #4553c9;
+    padding: 10px 0px;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+  }
+  .btn:focus {
+    display: none;
+  }
+  p a {
+    color: #4553c9;
+    cursor: pointer;
+  }
+  .mismatcherror{
+    font-size: 13px;
+    color: red;
+  }
+  button.btn.mdc-button.mdc-button--raised.mat-mdc-raised-button.mat-unthemed.mat-mdc-button-base{
+    height: 50px;
+    font-size: 18px;
+    cursor: pointer;
+}

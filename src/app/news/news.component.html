@@ -1,0 +1,50 @@
+<div class="section-search">
+    <input type="text" [(ngModel)]="search"    placeholder="Search movies by Title."/>
+    <button (click)=getOnClickSearch()>Search</button>
+ </div>
+ <div class="section-product">
+   <ng-container *ngIf="arrNnews.length>0 ;else NoNewsFound">
+     <div class="section-content" fxLayout="row wrap" fxLayout.xs="column"  fxLayoutAlign="space-evenly center" 
+     infiniteScroll  
+     [infiniteScrollUpDistance]="3"
+     [infiniteScrollDistance]="2"
+     [infiniteScrollThrottle]="500"
+     (scrolled)="onScroll()"
+     (scrolledUp)="onScrollUp()"
+     >
+      
+       <mat-card class="section-card" *ngFor="let news of arrNnews" (click)="getDetails(news)" >
+         
+         <img mat-card-image [src]="news.urlToImage"
+           alt="Photo of a Shiba Inu">
+         <mat-card-content>
+           <h1>{{news.title}}</h1>
+           <p>Author :{{news.author}}</p>
+           <span>{{news.description}}</span>
+         </mat-card-content>
+         
+       </mat-card>
+
+     </div>
+
+   </ng-container>
+   
+ 
+   <div class="spinner" *ngIf="spinner" >
+    <mat-progress-spinner
+    class="example-margin"
+    [color]="color"
+    [mode]="mode"
+    [value]="value">
+      </mat-progress-spinner>
+  </div>
+   <ng-template #NoNewsFound>
+ 
+     <div class="container" *ngIf="!spinner">
+       <h1>Oops!!! </h1>
+       <p>No Result Found with this search.Please try again</p>
+     </div>
+   </ng-template>
+
+ </div>
+  

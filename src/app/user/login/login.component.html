@@ -1,0 +1,32 @@
+<form class="report-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-main">
+      <div class="form-group">
+        <mat-label class="group-label">
+          Please sign in to continue"
+        </mat-label>
+        <p  class="mismatcherror" *ngIf= "isLoginError"> *Something wrong with Email or Password plz check and try again.</p>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <!-- <mat-icon matPrefix>account_circle</mat-icon> -->
+          <mat-icon matPrefix>person_outline</mat-icon>
+          <mat-label>Email </mat-label>
+          <input matInput placeholder="Email" formControlName="email"   (keyup)="onKeyUp()"/>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password"   (keyup)="onKeyUp()"/>
+          <mat-icon matPrefix> vpn_key</mat-icon>
+          <mat-icon matSuffix (click)="hide = !hide">{{
+            hide ? "visibility_off" : "visibility"
+            }}</mat-icon>
+        </mat-form-field>
+        <p>Don't have an account?
+          <a (click)="register()"> Register </a>now.
+        </p>
+      </div>
+    </div>
+    <div class="form-button">
+      <button type="submit" mat-raised-button class="btn" [disabled]="!this.loginForm.valid">
+        LOGIN
+      </button>
+    </div>
+  </form>

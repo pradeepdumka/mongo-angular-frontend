@@ -1,0 +1,9 @@
+.container {
+    /* margin-top: 64px; */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    & img{
+        margin-top: 64px;
+    }
+}

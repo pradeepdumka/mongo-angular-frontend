@@ -1,0 +1,101 @@
+.section-product{padding: 40px;min-height: 100vh;}
+.content {
+ position: absolute;
+ top: 65px;
+ left: 0px;
+ right: 0px;
+ bottom: 0px;
+ overflow-y: scroll;
+
+}
+
+.content-mob {
+ position: absolute;
+ top: 113px;
+ left: 0px;
+ right: 0px;
+ bottom: 0px;
+ overflow-y: scroll;
+
+}
+
+.section-card {
+ width: 300px;
+ min-height: 590px;
+ margin: 0px 18px 25px 0px;
+ cursor: pointer;
+ & img{
+   height: 250px;
+ }
+}
+.mat-mdc-card-content{
+ & h1{
+   font-size: 18px;
+   margin-top: 13px;
+   margin-bottom: 5px;
+  // text-overflow: ellipsis; /* enables ellipsis */
+   //white-space: nowrap; /* keeps the text in a single line */
+   //overflow: hidden;
+   font-family: sans-serif;
+   font-weight: 500;
+   color: gray;
+ }
+ & p{
+   font-weight: 500;
+   color: gray;
+ }
+
+ & span{
+    font-family: revert;
+ }
+
+}
+.spinner{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+ 
+.section-search{
+ display: flex;
+ justify-content: center;
+ padding-top: 20px;
+ padding-bottom: 20px;
+ background: gainsboro;
+ margin-top: 64px;
+ & input{
+   width: 500px;
+   padding: 10px;
+   outline: none;
+   font-size: 16px;
+   font-family: sans-serif;
+   border: 0;
+  
+   border-top-left-radius: 42px;
+    border-bottom-left-radius: 42px;
+   @media screen and (max-width: 1024px) {
+     width:400px
+   }
+   @media screen and (max-width: 767px) {
+      width:300px;
+      
+       
+   }
+ }
+ & button{
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  font-family: ui-sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom-right-radius: 42px;
+  border-top-right-radius: 42px;
+ }
+ @media screen and (max-width: 1024px) {
+    
+ }
+ @media screen and (max-width: 767px) {
+   margin-top: 57px;  
+ }
+}

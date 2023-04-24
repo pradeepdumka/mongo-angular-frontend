@@ -1,0 +1,54 @@
+<form class="report-form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="form-main">
+      <div class="form-group">
+        <mat-label class="group-label">Please register to continue"</mat-label>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-icon matPrefix>person_outline</mat-icon>
+          <mat-label>Username </mat-label>
+          <input matInput placeholder="Username" formControlName="username"  (keyup)="onKeyUp()"  />
+          <mat-error>Username is required</mat-error>
+   
+         
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-icon matPrefix>person_outline</mat-icon>
+          <mat-label>Email </mat-label>
+          <input matInput placeholder="Email" formControlName="email"  (keyup)="onKeyUp()"  />
+          <mat-error>Email is required</mat-error>
+   
+         
+        </mat-form-field>
+        <p  class="mismatcherror"*ngIf= "isEmailRegister">* {{errEmaliregister}}</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password"/>
+          <mat-error>Password is required</mat-error>
+          <mat-icon matPrefix> vpn_key</mat-icon>
+          <mat-icon (click)="hide = !hide" matSuffix>{{
+            hide ? "visibility_off" : "visibility"
+            }}</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Confirm Password</mat-label>
+          <input matInput [type]="hide ? 'confirmpassword' : 'text'" formControlName="confirmpassword" />
+          <mat-error *ngIf="registrationForm?.get('confirmpassword')?.errors?.['required']">Confirm Password is required</mat-error>
+  
+          <mat-icon matPrefix> vpn_key</mat-icon>
+          <mat-icon (click)="hide = !hide" matSuffix>{{
+            hide ? "visibility_off" : "visibility"
+            }}</mat-icon>
+        </mat-form-field>
+        <p  class="mismatcherror"*ngIf= " !registrationForm?.get('confirmpassword')?.errors?.['required'] && registrationForm?.errors?.['paswordMisMAtch']"> *Password and Confirm Password don't match.</p>
+        <p> Already Registered, Back to?
+          <a (click)="login()">
+            Login
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="form-button">
+      <button type="submit" mat-raised-button class="btn" [disabled]="!this.registrationForm.valid" >
+        Sign Up
+      </button>
+    </div>
+  </form>
