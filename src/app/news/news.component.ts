@@ -76,17 +76,25 @@ export class NewsComponent implements OnInit {
     let srcObservable= of(obj);
     
     srcObservable.pipe(
-      tap((v)=>console.log(v)),
+     // tap((v)=>console.log(v)),
       debounceTime(500),
       switchMap( val => {
         return this.mainServices.getAllNews(val)
       }),
     )
     .subscribe(res=> {
+     
       let resArray =[...this.arrNnews, ...res.response.arrNews];
-      console.log(resArray)
-      this.arrNnews=[...new Map(resArray.map(v => [v._id, v])).values()]
+      let items:any=[]
+      resArray.map((item)=>{
+          if(items.some((el:any) => el.title === item.title)===false){
+             items.push(item)
+          }  
+      }
+      ); 
+      this.arrNnews = items
       this.spinner= false;
+
     },
     error=>{
       this.mainServices.clearStorageData("userData")
@@ -101,7 +109,7 @@ export class NewsComponent implements OnInit {
       });
     }
     )
-    console.log(this.arrNnews)
+    //console.log(this.arrNnews)
    }
  
 }
